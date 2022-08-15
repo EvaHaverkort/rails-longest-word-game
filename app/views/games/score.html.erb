@@ -1,0 +1,20 @@
+<p>Your guess: </p>
+<%= params[:input]%>
+
+<h1>Results:</h1>
+<% if @message == "winner"%>
+  <p>Congratulations! <strong><%= params[:input] %></strong> is a valid English word! Your score is: </p>
+<% end %>
+
+<% if @message == "not english"%>
+  <p>"You're a failure, <strong><%=params[:input]%></strong> not an English word. Your score is: </p>
+<% end %>
+
+<%if @message == "impossible"%>
+  <p>"You're a failure, <strong><%=params[:input]%></strong> can't be built out of <%="#{@letters}"%>. Your score is: </p>
+<% end %>
+
+<%= @total_score%>
+<br>
+<br>
+<%=link_to "Play again", "/new"%>
